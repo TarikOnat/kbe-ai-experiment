@@ -1,0 +1,203 @@
+/* ------------------------------------------------------------------
+   Design-Tokens – angelehnt an das Erscheinungsbild der HTW Berlin
+   ------------------------------------------------------------------ */
+:root {
+  --htw-green: #76b900;
+  --htw-green-dark: #5a8f00;
+  --htw-green-darker: #3f6600;
+  --htw-green-light: #eef7e0;
+  --htw-anthracite: #333333;
+  --htw-gray-700: #4d4d4d;
+  --htw-gray-500: #737373;
+  --htw-gray-300: #c8c8c8;
+  --htw-gray-200: #e3e3e3;
+  --htw-gray-100: #f2f2f2;
+  --htw-white: #ffffff;
+
+  --color-error: #c4161c;
+  --color-error-bg: #fdecec;
+  --color-warning: #8a5a00;
+  --color-warning-bg: #fff4dc;
+  --color-info-bg: #eef3f8;
+
+  --font-sans: 'Open Sans', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-raised: 0 8px 24px rgba(0, 0, 0, 0.14);
+  --focus-ring: 0 0 0 3px rgba(118, 185, 0, 0.45);
+
+  --content-width: 1200px;
+  --header-height: 72px;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--htw-anthracite);
+  background: var(--htw-gray-100);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+a {
+  color: var(--htw-green-darker);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Buttons
+   ------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 20px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.btn-primary {
+  background: var(--htw-green);
+  color: var(--htw-white);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--htw-green-dark);
+}
+
+.btn-secondary {
+  background: var(--htw-white);
+  border-color: var(--htw-anthracite);
+  color: var(--htw-anthracite);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--htw-anthracite);
+  color: var(--htw-white);
+}
+
+.btn-danger {
+  background: var(--color-error);
+  color: var(--htw-white);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #9e1015;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  min-height: auto;
+  color: var(--htw-green-darker);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
